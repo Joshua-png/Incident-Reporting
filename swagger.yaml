@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Incident Reporting
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Incidents
+paths:
+  /api/v1/incidents/:
+    post:
+      tags:
+        - Incidents
+      summary: Create Incident
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                incident_desc: Typoon destroyed all the expensive houses
+                city: Washington
+                country: USA
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Incidents
+      summary: Get All Incidents
+      parameters:
+        - name: city
+          in: query
+          schema:
+            type: string
+        - name: temperature_min
+          in: query
+          schema:
+            type: string
+        - name: temperature_max
+          in: query
+          schema:
+            type: string
+        - name: humidity
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v1/incidents/search:
+    post:
+      tags:
+        - Incidents
+      summary: Search Incidents By Country
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                country: USA
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
