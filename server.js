@@ -33,11 +33,31 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 // Serve Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// Homepage
+app.get("/", (req, res) => {
+  const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Incident Reporting</title>
+        </head>
+        <body>
+            <h1>Link to API DOCS (SWAGGER UI IMPLEMATION WHERE THIS API CAN BE TESTED)</h1>
+            <a href="https://incident-reporting.onrender.com/api-docs">Please click the link to access the api docs</a>
+        </body>
+        </html>
+    `;
+  res.status(StatusCodes.OK).send(htmlContent);
+});
+
 // Middleware
 app.use(express.json());
 const {
   errorHandlerMiddleware,
 } = require("./middleware/errorHandlerMiddleware");
+const { StatusCodes } = require("http-status-codes");
 
 // Incident Route
 app.use("/api/v1/incidents", IncidentRouter);
