@@ -45,7 +45,6 @@ app.get("/", (req, res) => {
         </head>
         <body>
             <h1>Link to API docs</h1>
-            <br />
             <h3>(A swagger UI implementation to enable one run test this API.)</h3>
             <br />
             <a href="https://incident-reporting.onrender.com/api-docs">Please click the link to access the api docs</a>
