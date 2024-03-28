@@ -76,10 +76,10 @@ The Incident Reporting System is a Node.js application for managing incident rep
    npm run test:setup
    ```
 
-  after
-  ```bash
-  npm run test
-  ```
+   after
+   ```bash
+   npm run test
+   ```
 
 7. **Start the server:**
 
